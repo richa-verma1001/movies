@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Like from './Like'
+import Like from './common/Like'
 
 class Movie extends Component {
 
