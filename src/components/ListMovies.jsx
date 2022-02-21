@@ -8,7 +8,11 @@ class ListMovies extends Component {
 
     movies = movies.map((movie) => {
       return (
-        <Movie key={movie._id} onDelete={() => this.props.onDelete(movie._id)} movie={movie} />
+        <Movie
+          key={movie._id}
+          onDelete={() => this.props.onDelete(movie._id)}
+          onFavorite={() => this.props.onFavorite(movie._id)}
+          movie={movie} />
       )
     });
 
@@ -19,6 +23,7 @@ class ListMovies extends Component {
           <li><strong>Genre</strong></li>
           <li><strong>Stock</strong></li>
           <li><strong>Rate</strong></li>
+          <li><strong>Favorite</strong></li>
           <li className="last"><strong></strong></li>
         </ul>
         {movies}
