@@ -26,11 +26,7 @@ class Movie extends Component {
   }
 
   render() {
-    return (
-      <main>
-        {this.listMovies()}
-      </main>
-    )
+    return this.listMovies();
   }
 }
 

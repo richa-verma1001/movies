@@ -40,6 +40,19 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 5px;
+  color: black;
+  cursor: pointer;
+}
+
+a.active, a:hover {
+  background-color: lightblue;
+  color: white
+}
+
 ul {
   list-style-type: none;
   display: flex;  
@@ -51,15 +64,63 @@ ul {
   flex-basis: 15%;
  }
 
+main {
+   display: flex;
+   flex-direction: row;
+}
+
+main .sideNav {
+  flex-basis: 15%;
+  margin-right: 20px;
+}
+
+main .movies {
+  flex-basis: 85%;
+  width: 100%;
+}
+
+.sideNav ul {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 0;
+ }
+
+ .sideNav ul > li {
+   border-top: 1px solid lightgray;
+ }
+
  button.favoriteMovie {
    background-color: white;
    color: red;
  }
 
- .last {
+ .movies .last {
    flex-basis: 10%;
  }
 .listTitle {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+footer > ul > li {  
+  border: 1px solid lightgray;
+  margin-right: 10px;
+  border-radius: 30%;
+}
+
+footer button {
+  background-color: transparent;
+  color: lightblue;
+  font-size: 1rem;
+}
+
+footer button.selected, footer button:hover {
+  background-color: lightblue;
+  color: white;
 }

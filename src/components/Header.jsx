@@ -6,10 +6,8 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <header>
-          <p>Showing {this.props.numOfMovies} movies in the database</p>
-          <AddMovie />
-        </header>
+        <p>Showing {this.props.movieCount} of {this.props.numOfMovies} movies in the database</p>
+        <AddMovie />
       </React.Fragment>
     )
   }
