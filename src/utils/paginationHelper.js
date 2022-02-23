@@ -16,4 +16,36 @@ export function getPageCount(pageSize, movies) {
   return remainder > 0 ? Math.floor((numMovies / pageSize)) + 1 : numMovies / pageSize;
 }
 
+export function sortBy(property, movies, order) {
+  movies = movies.sort((a, b) => {
+    if (order === 'asc')
+      return getPropertyValue(property, a) - getPropertyValue(property, b);
+    return getPropertyValue(property, b) - getPropertyValue(property, a);
+  });
+  console.log(movies);
+  return movies;
+}
+
+function getPropertyValue(property, obj) {
+  let result = '';
+  switch (property) {
+    case 'title':
+      result = obj[property][0].charCodeAt();
+      break;
+    case 'numberInStock':
+    case 'dailyRentalRate':
+      result = Number(obj[property]);
+      break;
+    case 'genre':
+      result = obj.genre.name[0].charCodeAt();
+      break;
+    case 'favorite':
+      result = obj.favorite;
+      break;
+    default:
+      result = '';
+  }
+  return result;
+}
+
 

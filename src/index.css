@@ -103,6 +103,14 @@ main .movies {
   border-bottom: 1px solid lightgray;
 }
 
+.listTitle li {
+  /* background-color: red; */
+}
+
+.listTitle li:after {
+  /* content: '>>'; */
+}
+
 footer {
   display: flex;
   justify-content: center;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import ListMovies from './components/ListMovies';
+import MovieList from './components/MovieList';
 import Pagination from './components/common/Pagination';
-import { deleteMovie, getMovies, getMoviesForGenre } from './services/fakeMovieService';
-import { getMoviesPerPage, getPageCount } from './utils/paginationHelper';
-import { getGenres } from './services/fakeGenreService';
 import Navigation from './components/common/Navigation';
+import { deleteMovie, getMovies, getMoviesForGenre } from './services/fakeMovieService';
+import { getMoviesPerPage, getPageCount, sortBy } from './utils/paginationHelper';
+import { getGenres } from './services/fakeGenreService';
 
 class Main extends Component {
   PAGE_SIZE = 3;
@@ -23,6 +23,7 @@ class Main extends Component {
     this.handleFavorite = this.handleFavorite.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.handleGenreClick = this.handleGenreClick.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   componentDidMount() {
@@ -60,7 +61,6 @@ class Main extends Component {
   }
 
   handleGenreClick(genreId) {
-    console.log('genre clicked' + genreId);
     const movies = genreId === '' ? getMovies() : getMoviesForGenre(genreId);
     const totalPages = getPageCount(this.PAGE_SIZE, movies);
 
@@ -69,6 +69,17 @@ class Main extends Component {
       pageSelected: 1,
       totalPages: totalPages,
       selectedGenre: genreId
+    })
+  }
+
+  handleSort(property) {
+    console.log(`sort called on property ${property}`);
+    const movies = sortBy(property, getMovies(), 'asc');
+
+    this.setState({
+      movies: movies,
+      pageSelected: 1,
+      selectedGenre: ''
     })
   }
 
@@ -88,10 +99,11 @@ class Main extends Component {
               onGenreClick={this.handleGenreClick} />
           </div>
           <div className="movies">
-            <ListMovies
+            <MovieList
               onDelete={this.handleDelete}
               onFavorite={this.handleFavorite}
-              movies={moviesOnPage} />
+              movies={moviesOnPage}
+              onSort={this.handleSort} />
           </div>
         </main>
         <footer>

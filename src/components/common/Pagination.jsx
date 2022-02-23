@@ -26,5 +26,7 @@ export default class Pagination extends Component {
 
 Pagination.propTypes = {
   pageSelected: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  movies: PropTypes.array.isRequired,
   onPageChange: PropTypes.func.isRequired
 }

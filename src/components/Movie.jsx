@@ -3,7 +3,7 @@ import Like from './common/Like'
 
 class Movie extends Component {
 
-  listMovies() {
+  movieList() {
     const movie = this.props.movie;
 
     return (
@@ -13,12 +13,14 @@ class Movie extends Component {
         <li>{movie.numberInStock}</li>
         <li>{movie.dailyRentalRate}</li>
         <li>
-          <Like favorite={movie.favorite} handleClick={() => this.props.onFavorite(movie._id)} />
+          <Like
+            favorite={movie.favorite}
+            handleClick={() => this.props.onFavorite()} />
         </li>
         <li className='last'>
           <button
             className='deleteMovie'
-            onClick={() => this.props.onDelete(movie._id)}
+            onClick={() => this.props.onDelete()}
           >Delete</button>
         </li>
       </ul>
@@ -26,7 +28,7 @@ class Movie extends Component {
   }
 
   render() {
-    return this.listMovies();
+    return this.movieList();
   }
 }
 
