@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import MovieList from './components/MovieList';
-import Pagination from './components/common/Pagination';
-import Navigation from './components/common/Navigation';
-import { deleteMovie, getMovies, getMoviesForGenre } from './services/fakeMovieService';
-import { getMoviesPerPage, getPageCount, sortBy } from './utils/paginationHelper';
-import { getGenres } from './services/fakeGenreService';
+import Header from './Header';
+import MovieList from './MovieList';
+import Pagination from './common/Pagination';
+import Navigation from './common/Navigation';
+import { deleteMovie, getMovies, getMoviesForGenre } from '../services/fakeMovieService';
+import { getMoviesPerPage, getPageCount, sortBy } from '../utils/paginationHelper';
+import { getGenres } from '../services/fakeGenreService';
+import { Link, Outlet } from 'react-router-dom';
 
-class Main extends Component {
+class MoviesContainer extends Component {
   PAGE_SIZE = 3;
 
   constructor(props) {
@@ -85,9 +86,8 @@ class Main extends Component {
 
   render() {
     const moviesOnPage = getMoviesPerPage(this.state.pageSelected, this.PAGE_SIZE, this.state.movies);
-
     return (
-      <div className='container' >
+      <>
         <header>
           <Header movieCount={moviesOnPage.length} numOfMovies={this.state.movies.length} />
         </header>
@@ -113,10 +113,10 @@ class Main extends Component {
             movies={this.state.movies}
             onPageChange={this.handlePageClick} />
         </footer>
-      </div>
+      </>
     )
   }
 
 }
 
-export default Main;
+export default MoviesContainer;

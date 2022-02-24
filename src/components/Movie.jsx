@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Like from './common/Like'
+import { Link } from 'react-router-dom'
 
 class Movie extends Component {
 
@@ -8,7 +9,7 @@ class Movie extends Component {
 
     return (
       <ul key={movie._id} className='listItem'>
-        <li>{movie.title}</li>
+        <li><Link to={`/movies/${movie._id}`}>{movie.title}</Link></li>
         <li>{movie.genre.name}</li>
         <li>{movie.numberInStock}</li>
         <li>{movie.dailyRentalRate}</li>

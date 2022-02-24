@@ -24,11 +24,14 @@ body {
   background-color: white;
   box-shadow: var(--shadow);
 }
+.navBar {
+  border-bottom: 1px solid lightblue;
+}
 
 header {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding: 20px 0px;
 }
 
 button {
@@ -48,7 +51,11 @@ a {
   cursor: pointer;
 }
 
-a.active, a:hover {
+.listItem a {
+  color: blue;
+}
+
+.sideNav a.active, .sideNav a:hover {
   background-color: lightblue;
   color: white
 }
@@ -101,14 +108,6 @@ main .movies {
 .listTitle {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
-}
-
-.listTitle li {
-  /* background-color: red; */
-}
-
-.listTitle li:after {
-  /* content: '>>'; */
 }
 
 footer {
