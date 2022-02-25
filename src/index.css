@@ -43,6 +43,10 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  background-color: gray;
+}
+
 a {
   text-decoration: none;
   display: block;
@@ -130,4 +134,46 @@ footer button {
 footer button.selected, footer button:hover {
   background-color: lightblue;
   color: white;
+}
+
+.loginForm {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+.loginForm h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form>input {
+  padding: 5px 5px;
+  border: 1px solid rgb(0,0,0,0.2);
+  border-radius: 5%;
+}
+
+form>input:focus {
+  border: 1px solid lightblue;
+}
+form>button {
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+}
+
+form>span {
+  display: none;
+}
+
+form>span.error {
+  display: contents;
+  color: red;
 }
