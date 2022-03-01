@@ -39,8 +39,9 @@ class MoviesContainer extends Component {
   handleDelete(movieId) {
     let movies = [...this.state.movies];
     movies = movies.filter((movie) => movie._id != movieId);
+    let totalPages = getPageCount(this.PAGE_SIZE, movies);
     deleteMovie(movieId);
-    this.setState({ movies });
+    this.setState({ movies, totalPages });
   }
 
   handleFavorite(movieId) {
