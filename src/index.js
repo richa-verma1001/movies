@@ -7,7 +7,10 @@ import MovieForm from './routes/MovieForm';
 import Movies from './routes/Movies';
 import Customers from './routes/Customers';
 import Rentals from './routes/Rentals';
-import Login from './routes/Login';
+import LoginForm from './routes/LoginForm';
+import RegisterForm from './routes/RegisterForm';
+// import AddNewMovieForm from './routes/AddNewMovieForm';
+import WithNavigate from './components/common/WithNavigate';
 import NotFound from './routes/NotFound';
 import './index.css';
 
@@ -18,11 +21,13 @@ ReactDOM.render(
         <Route index element={<Movies />} />
         <Route path="movies" element={<Movies />} >
           <Route index element={<MoviesContainer />} />
-          <Route path=":id" element={<MovieForm />} />
+          <Route path="new" element={<WithNavigate />} />
+          <Route path=":movieid" element={<WithNavigate />} />
         </Route>
         <Route path="customers" element={<Customers />} />
         <Route path="rentals" element={<Rentals />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<LoginForm />} />
+        <Route path="register" element={<RegisterForm />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 

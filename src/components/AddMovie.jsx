@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
-function AddMovie() {
+function AddMovie(props) {
+  const { onMovieAdd } = props;
+  //console.log(onMovieAdd);
+
   return (
     <React.Fragment>
-      <button className="addMovie" id="addMovie">Add Movie</button>
+      <Link className="addMovie" to="/movies/new">Add Movie</Link>
     </React.Fragment>
   )
 }

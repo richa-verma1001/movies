@@ -35,7 +35,7 @@ header {
 }
 
 button {
-  background-color: red;
+  background-color: rgb(48, 192, 240);
   color: white;
   border: 0;
   padding: 5px;
@@ -47,10 +47,18 @@ button:disabled {
   background-color: gray;
 }
 
+a.addMovie {
+  background-color: rgb(48, 192, 240);
+  color: white;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   display: block;
-  padding: 10px 5px;
   color: black;
   cursor: pointer;
 }
@@ -97,18 +105,19 @@ main .movies {
   padding: 0;
  }
 
- .sideNav ul > li {
+.sideNav ul > li {
    border-top: 1px solid lightgray;
  }
 
- button.favoriteMovie {
+button.favoriteMovie {
    background-color: white;
    color: red;
  }
 
- .movies .last {
+.movies .last {
    flex-basis: 10%;
  }
+
 .listTitle {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
@@ -136,17 +145,16 @@ footer button.selected, footer button:hover {
   color: white;
 }
 
-.loginForm {
+.formWrapper {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   line-height: 1.5rem;
   font-size: 1rem;
 }
-.loginForm h1 {
+.formWrapper h1 {
   margin-bottom: 20px;
+  color: rgb(48, 192, 240);
 }
 
 form {
@@ -160,13 +168,29 @@ form>input {
   border-radius: 5%;
 }
 
+form>select {
+  padding: 5px 5px;
+  border: 1px solid rgb(0,0,0,0.2);
+  border-radius: 5%;
+}
+form>select:focus {
+  border: 1px solid lightblue;
+}
+
 form>input:focus {
   border: 1px solid lightblue;
 }
 form>button {
   margin-top: 10px;
   width: fit-content;
-  align-self: center;
+  /* align-self: center; */
+  background-color: rgb(48, 192, 240);
+  box-shadow: var(--shadow);
+}
+
+form>button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 form>span {

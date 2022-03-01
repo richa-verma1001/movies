@@ -10,7 +10,7 @@ class Movie extends Component {
     return (
       <ul key={movie._id} className='listItem'>
         <li><Link to={`/movies/${movie._id}`}>{movie.title}</Link></li>
-        <li>{movie.genre.name}</li>
+        <li>{movie.genre?.name}</li>
         <li>{movie.numberInStock}</li>
         <li>{movie.dailyRentalRate}</li>
         <li>

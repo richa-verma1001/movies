@@ -2,16 +2,6 @@ import React, { Component } from 'react'
 import { sortBy } from '../utils/paginationHelper';
 
 class MovieHeader extends Component {
-  // handleSort(property, e) {
-  //   console.log(`handle sort in movie header`);
-  //   //console.log(e);
-  //   const liElem = e.target.parentNode;
-  //   const currClass = liElem.className;
-  //   if(currClass === 'asc')
-  //     liElem.toggle
-  //   this.props.onSort(property);
-  // }
-
   render() {
     return (
       <ul className='listTitle'>
