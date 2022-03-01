@@ -79,9 +79,39 @@ ul {
   justify-content: space-between;
   padding: 10px 0px;
 }
- ul > li {
+ul > li {
   flex-basis: 15%;
- }
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+
+.searchBar input:focus {
+  border: 1px solid lightblue;
+}
+
+.searchBar button {
+  background-color: white;
+  color: black;
+  border-radius: 0%;
+  padding: 0px;
+  margin-left: 10px;
+}
+
+.searchBar *.hide {
+  display: none;
+}
+
+.searchBar *.show {
+  display: visible;
+}
 
 main {
    display: flex;

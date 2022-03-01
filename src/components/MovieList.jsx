@@ -4,9 +4,7 @@ import Movie from './Movie';
 import MovieHeader from './MovieHeader';
 
 class MovieList extends Component {
-  show(property) {
-    console.log('show called' + property);
-  }
+
   render() {
     let { movies, onSort, onDelete, onFavorite } = this.props;
 
@@ -22,7 +20,7 @@ class MovieList extends Component {
 
     return (
       <React.Fragment>
-        <MovieHeader onSort={(property) => this.props.onSort(property)} />
+        <MovieHeader onSort={(property) => onSort(property)} />
         {movies}
       </React.Fragment >
     )

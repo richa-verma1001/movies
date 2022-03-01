@@ -22,7 +22,6 @@ export function sortBy(property, movies, order) {
       return getPropertyValue(property, a) - getPropertyValue(property, b);
     return getPropertyValue(property, b) - getPropertyValue(property, a);
   });
-  console.log(movies);
   return movies;
 }
 

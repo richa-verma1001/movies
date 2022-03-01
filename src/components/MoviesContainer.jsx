@@ -25,6 +25,7 @@ class MoviesContainer extends Component {
     this.handlePageClick = this.handlePageClick.bind(this);
     this.handleGenreClick = this.handleGenreClick.bind(this);
     this.handleSort = this.handleSort.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -74,12 +75,28 @@ class MoviesContainer extends Component {
   }
 
   handleSort(property) {
-    console.log(`sort called on property ${property}`);
     const movies = sortBy(property, getMovies(), 'asc');
-
     this.setState({
       movies: movies,
       pageSelected: 1,
+      selectedGenre: ''
+    })
+  }
+
+  handleChange(e) {
+    const searchText = e.target.value.trim();
+    const regex = new RegExp(searchText, 'i');
+    const allMovies = getMovies();
+
+    let matches = allMovies.filter((movie) => {
+      return regex.test(movie.title);
+    });
+
+    const totalPages = getPageCount(this.PAGE_SIZE, matches);
+    this.setState({
+      movies: matches,
+      pageSelected: 1,
+      totalPages: totalPages,
       selectedGenre: ''
     })
   }
@@ -89,7 +106,7 @@ class MoviesContainer extends Component {
     return (
       <>
         <header>
-          <Header movieCount={moviesOnPage.length} numOfMovies={this.state.movies.length} />
+          <Header movieCount={moviesOnPage.length} numOfMovies={this.state.movies.length} onSearch={this.handleChange} />
         </header>
         <main>
           <div className='sideNav'>
