@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getMoviesPerPage, getPageCount } from '../../utils/paginationHelper';
-
 
 export default class Pagination extends Component {
   render() {
