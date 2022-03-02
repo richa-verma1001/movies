@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 
@@ -8,21 +8,20 @@ const Navigation = (props) => {
   let hasActive = false;
   const navElems = items.map((item) => {
     let active = '';
-    if (item._id == selected) {
+    if (item._id === selected) {
       active = 'active';
       hasActive = true;
     }
     return <li key={item._id}>
-      <a href="#" className={active} onClick={() => onGenreClick(item._id)}>{item.name}</a>
+      <button className={active} onClick={() => onGenreClick(item._id)}>{item.name}</button>
     </li>
   })
 
   return (
     <ul>
-      <li><a
-        href="#"
+      <li><button
         className={hasActive ? '' : 'active'}
-        onClick={() => onGenreClick('')}>All Genres</a></li>
+        onClick={() => onGenreClick('')}>All Genres</button></li>
       {navElems}
     </ul >
   )
