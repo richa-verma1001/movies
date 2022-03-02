@@ -6,7 +6,6 @@ import Navigation from './common/Navigation';
 import { deleteMovie, getMovies, getMoviesForGenre } from '../services/fakeMovieService';
 import { getMoviesPerPage, getPageCount, sortBy } from '../utils/paginationHelper';
 import { getGenres } from '../services/fakeGenreService';
-import { Link, Outlet } from 'react-router-dom';
 
 class MoviesContainer extends Component {
   PAGE_SIZE = 3;
@@ -38,7 +37,7 @@ class MoviesContainer extends Component {
 
   handleDelete(movieId) {
     let movies = [...this.state.movies];
-    movies = movies.filter((movie) => movie._id != movieId);
+    movies = movies.filter((movie) => movie._id !== movieId);
     let totalPages = getPageCount(this.PAGE_SIZE, movies);
     deleteMovie(movieId);
     this.setState({ movies, totalPages });
@@ -47,7 +46,7 @@ class MoviesContainer extends Component {
   handleFavorite(movieId) {
     let movies = [...this.state.movies];
     movies = movies.map((movie) => {
-      if (movie._id == movieId) {
+      if (movie._id === movieId) {
         // toggle favorite
         movie.favorite = !movie.favorite;
       }

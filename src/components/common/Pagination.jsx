@@ -8,7 +8,7 @@ export default class Pagination extends Component {
 
     let pageList = [];
     for (let i = 1; i <= totalPages; i++) {
-      if (i == pageSelected)
+      if (i === pageSelected)
         pageList.push(<li key={i}><button className='selected'>{i}</button></li>);
       else
         pageList.push(<li key={i}><button onClick={() => onPageChange(i, movies)}>{i}</button></li>);

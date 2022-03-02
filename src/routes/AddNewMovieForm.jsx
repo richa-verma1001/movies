@@ -60,7 +60,7 @@ export default class AddNewMovieForm extends Component {
     const errors = validateForm(this.state.data, this.schema, { abortEarly: false });
     this.setState({ errors });
 
-    if (Object.keys(errors).length == 0) {
+    if (Object.keys(errors).length === 0) {
       const newMovie = {
         title: this.state.data.title,
         numberInStock: this.state.data.numberInStock,

@@ -8,7 +8,7 @@ export default function Select(props) {
     value,
     onChange,
     error } = props;
-  const showError = error != '' ? true : false;
+  const showError = error !== '' ? true : false;
   const genres = getGenres();
 
   return (

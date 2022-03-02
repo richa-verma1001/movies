@@ -1,4 +1,3 @@
-import { faJoint } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
 import Input from '../components/common/Input';
 import FormWrapper from '../components/common/FormWrapper';

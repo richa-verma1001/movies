@@ -9,7 +9,7 @@ export default function Input(props) {
     onChange,
     error } = props;
 
-  const showError = error != '' ? true : false;
+  const showError = error !== '' ? true : false;
 
   return (
     <>
